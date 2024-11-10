@@ -9,7 +9,6 @@ body {
     background-color: #121212;
     color: #e0e0e0;
     line-height: 1.6;
-    overflow-x: hidden;
 }
 
 .header {
@@ -17,11 +16,6 @@ body {
     padding: 2rem 0;
     background-color: #333;
     color: #f0f0f0;
-    transition: background-color 0.3s ease;
-}
-
-.header:hover {
-    background-color: #444;
 }
 
 .section {
@@ -29,18 +23,6 @@ body {
     padding: 1.5rem;
     background-color: #1e1e1e;
     border-radius: 8px;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeIn 1s ease forwards;
-    animation-delay: 0.3s;
-}
-
-.section:nth-child(2) {
-    animation-delay: 0.6s;
-}
-
-.section:nth-child(3) {
-    animation-delay: 0.9s;
 }
 
 h2 {
@@ -54,11 +36,4 @@ a {
 
 a:hover {
     text-decoration: underline;
-}
-
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
