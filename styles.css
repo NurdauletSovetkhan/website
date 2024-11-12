@@ -1,3 +1,71 @@
+/* Медиа-запрос для экранов до 768px */
+@media (max-width: 768px) {
+
+    /* Уменьшение отступов в хедере и размера шрифта */
+    header {
+        padding: 0px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    header .name {
+        font-size: 1.4rem;
+        margin-right: 0; /* Убираем отступ */
+        margin-bottom: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 8px; /* Уменьшаем промежутки между ссылками */
+        margin-left: 0;
+    }
+
+    nav a {
+        padding: 8px 12px;
+        font-size: 1rem; /* Уменьшаем размер шрифта */
+    }
+
+    /* Основные секции */
+    section {
+        padding: 60px 10px 40px; /* Уменьшенные отступы */
+        max-width: 100%; /* Занимает всю ширину экрана */
+        margin: 60px auto 0;
+    }
+
+    section h2 {
+        font-size: 1.8rem; /* Уменьшенный размер заголовка */
+    }
+
+    section p {
+        font-size: 1rem; /* Меньший размер текста */
+        max-width: 90%; /* Сужаем текст для лучшей читабельности */
+    }
+
+    /* Карточки навыков и проектов */
+    .skill-card, .project-card {
+        padding: 15px;
+        margin: 10px 0;
+        font-size: 0.9rem; /* Уменьшаем текст внутри карточек */
+    }
+
+    /* Форма контактов */
+    form input, form textarea {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    form button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    /* Футер */
+    footer {
+        padding: 15px;
+        font-size: 0.8rem;
+    }
+}
+
 /* Сброс и базовый стиль */
 * {
     margin: 0;
@@ -56,9 +124,6 @@ body {
 }
 
 
-
-
-
 /* Header and Navigation */
 header {
     padding: 20px;
@@ -71,6 +136,7 @@ header {
     background-color: rgba(18, 18, 18, 0.8);
     backdrop-filter: blur(10px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
 }
 
 header .name {
