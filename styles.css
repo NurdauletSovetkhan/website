@@ -187,13 +187,13 @@ section p {
     overflow: hidden;
 }
 
-/* .skill-card:hover, .project-card:hover {
+.skill-card:hover, .project-card:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
-} */
+}
 
 /* Эффекты для карточек */
-/* .skill-card::before, .project-card::before {
+.skill-card::before, .project-card::before {
     content: "";
     position: absolute;
     top: 0;
@@ -203,11 +203,11 @@ section p {
     background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(16, 185, 129, 0.2));
     opacity: 0;
     transition: opacity 0.3s;
-} */
+}
 
-/* .skill-card:hover::before, .project-card:hover::before {
+.skill-card:hover::before, .project-card:hover::before {
     opacity: 1;
-} */
+}
 
 /* Форма контактов */
 form input, form textarea {
