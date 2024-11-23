@@ -68,13 +68,60 @@ header {
     z-index: 1000;
 }
 
-header .name {
-    /* font-size: 30px; */
+/* header .name {
     font-weight: 600;
     font-size: calc(13px + 17 * (100vw / 1920));
     color: #E0E0E0;
     margin-right: 50px; 
+} */
+
+.concept {
+	position: relative;
+	padding: .01em;
+	overflow: hidden;
+	scroll-snap-align: center;
+    z-index: 1000;
+	&:before {
+		content: "";
+		position: absolute;
+		width: 100%;
+		height: 5%;
+		top: 0;
+		left: 0;
+		background: radial-gradient(rgba(0, 0, 0, 0.3), transparent);
+		opacity: 0;
+		transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+	}
+	&:hover:before {
+		opacity: 0.5;
+	}
 }
+
+.tittle {
+	display: flex;
+	grid: 100% / repeat(6, 1fr);
+    padding: .1em .1em;
+    	.hover {
+		position: relative;
+		display: grid;
+		place-items: center;
+	}
+	h1 {
+        font-size: calc(13px + 17 * (100vw / 1920));
+		color: transparent;
+		text-align: 0 1px 1px;
+		-webkit-text-stroke: 2px #fff;
+		text-shadow: none;
+		transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	}
+	.hover:hover h1 {
+		transform: scale(1.5);
+		color: #fff;
+		-webkit-text-stroke: 2px transparent;
+		text-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+	}
+}
+
 
 nav {
     display: flex;
@@ -140,13 +187,13 @@ section p {
     overflow: hidden;
 }
 
-.skill-card:hover, .project-card:hover {
+/* .skill-card:hover, .project-card:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
-}
+} */
 
 /* Эффекты для карточек */
-.skill-card::before, .project-card::before {
+/* .skill-card::before, .project-card::before {
     content: "";
     position: absolute;
     top: 0;
@@ -156,11 +203,11 @@ section p {
     background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(16, 185, 129, 0.2));
     opacity: 0;
     transition: opacity 0.3s;
-}
+} */
 
-.skill-card:hover::before, .project-card:hover::before {
+/* .skill-card:hover::before, .project-card:hover::before {
     opacity: 1;
-}
+} */
 
 /* Форма контактов */
 form input, form textarea {
