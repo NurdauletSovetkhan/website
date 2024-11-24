@@ -54,6 +54,7 @@ body {
         transform: translateY(-10vh) scale(.9);
     }
 }
+
 /* Header and Navigation */
 header {
     padding: 20px;
@@ -68,12 +69,7 @@ header {
     z-index: 1000;
 }
 
-/* header .name {
-    font-weight: 600;
-    font-size: calc(13px + 17 * (100vw / 1920));
-    color: #E0E0E0;
-    margin-right: 50px; 
-} */
+
 
 .concept {
 	position: relative;
@@ -203,11 +199,14 @@ section p {
     background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(16, 185, 129, 0.2));
     opacity: 0;
     transition: opacity 0.3s;
+    pointer-events: none;
 }
 
 .skill-card:hover::before, .project-card:hover::before {
     opacity: 1;
 }
+
+
 
 /* Форма контактов */
 form input, form textarea {

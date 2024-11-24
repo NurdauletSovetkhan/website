@@ -12,43 +12,31 @@
 <body>
     <!-- Bubbles Animation -->
     <div class="container">
-        <div class="bubbles">
-            <span style="--i:11"></span>
-            <span style="--i:25"></span>
-            <span style="--i:13"></span>
-            <span style="--i:21"></span>
-            <span style="--i:18"></span>
-            <span style="--i:24"></span>
-            <span style="--i:14"></span>
-            <span style="--i:12"></span>
-            <span style="--i:17"></span>
-            <span style="--i:22"></span>
-            <span style="--i:15"></span>
-            <span style="--i:25"></span>
-            <span style="--i:11"></span>
-            <span style="--i:25"></span>
-            <span style="--i:13"></span>
-            <span style="--i:21"></span>
-            <span style="--i:18"></span>
-            <span style="--i:24"></span>
-            <span style="--i:14"></span>
-            <span style="--i:12"></span>
-            <span style="--i:17"></span>
-            <span style="--i:22"></span>
-            <span style="--i:15"></span>
-            <span style="--i:25"></span>
-            <span style="--i:13"></span>
-            <span style="--i:21"></span>
-            <span style="--i:18"></span>
-            <span style="--i:24"></span>
-            <span style="--i:14"></span>
-            <span style="--i:12"></span>
-            <span style="--i:17"></span>
-            <span style="--i:22"></span>
-            <span style="--i:15"></span>
-            <span style="--i:25"></span>
-        </div>
+        <div class="bubbles" id="bubbles"></div>
     </div>
+    
+    <script>
+        const bubbleContainer = document.getElementById('bubbles');
+
+        function createBubbles() {
+            bubbleContainer.innerHTML = '';
+
+            const screenWidth = window.innerWidth;
+            const bubbleCount = Math.floor(screenWidth / 34); // Количество пузырьков на каждые 100 пикселей ширины
+
+            for (let i = 0; i < bubbleCount; i++) {
+                const bubble = document.createElement('span');
+                const randomValue = Math.floor(Math.random() * 25) + 1;
+                bubble.style.setProperty('--i', randomValue);
+                bubbleContainer.appendChild(bubble);
+            }
+        }
+
+        createBubbles();
+
+        window.addEventListener('resize', createBubbles);
+    </script>
+    
 
     <!-- Header Section -->
     <header>
