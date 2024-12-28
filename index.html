@@ -77,6 +77,8 @@
         <div class="skill-card">C++</div>
         <div class="skill-card">HTML & CSS</div>
         <div class="skill-card">JavaScript</div>
+        <div class="skill-card">Assembly</div>
+        <div class="skill-card">Java</div>
     </section>
 
     <!-- Projects Section -->
@@ -92,19 +94,29 @@
             <p>An interactive quiz application with multiple choice questions.</p>
             <a href="https://github.com/NurdauletSovetkhan/QuizApp">View on GitHub</a>
         </div>
+        <div class="project-card">
+            <h3>2048 Game</h3>
+            <p>An terminal programm to play 2048 made by Python</p>
+            <a href="https://github.com/NurdauletSovetkhan/2048game">View on GitHub</a>
+        </div>
+        <div class="project-card">
+            <h3>DAYN mod for Minecraft</h3>
+            <p>A mod for Minecraft 1.20 that adds unique armor, weapons and dimensions</p>
+            <a href="https://github.com/NurdauletSovetkhan/DAYN">View on GitHub</a>
+        </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact">
         <h2>Contact</h2>
-        <form>
-            <input type="text" placeholder="Your Name">
-            <input type="email" placeholder="Your Email">
-            <textarea placeholder="Your Message"></textarea>
+        <form action="send_email.php" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
             <button type="submit">Send</button>
         </form>
     </section>
-
+    
     <footer>
         <p>&copy; 2024 Nurdaulet Sovetkhan</p>
     </footer>

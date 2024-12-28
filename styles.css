@@ -67,6 +67,7 @@ header {
     backdrop-filter: blur(10px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     z-index: 1000;
+    flex-wrap: wrap;
 }
 
 
@@ -76,7 +77,8 @@ header {
 	padding: .01em;
 	overflow: hidden;
 	scroll-snap-align: center;
-    z-index: 1000;
+    z-index: 1001;
+    flex: 1;
 	&:before {
 		content: "";
 		position: absolute;
@@ -127,7 +129,7 @@ nav {
 nav ul {
     list-style: none;
     display: flex;
-    gap: 2vw;
+    gap: .5vw;
     margin-left: auto;
     padding: 0;
 }
