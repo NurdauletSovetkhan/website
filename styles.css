@@ -120,6 +120,22 @@ header {
 	}
 }
 
+.social-media {
+    display: flex;
+    margin-top: 10px;
+    justify-content: center; /* Centers icons horizontally */
+    gap: 20px; /* Space between icons */
+}
+.social-media svg {
+    width: 25px; 
+    height: 25px;
+}
+.social-media a {
+    color: #E0E0E0;
+    font-size: calc(10px + 10 * (100vw / 1920));
+    transition: color 0.3s;
+    text-decoration: none;
+}
 
 nav {
     display: flex;
