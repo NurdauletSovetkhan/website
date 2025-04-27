@@ -190,7 +190,7 @@ section p {
 
 /* Карточки навыков и проектов */
 
-.skill-card, .project-card {
+.project-card {
     background-color: #1F1F1F;
     padding: 20px;
     margin: 15px 0;
@@ -201,13 +201,13 @@ section p {
     overflow: hidden;
 }
 
-.skill-card:hover, .project-card:hover {
+.project-card:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
 }
 
 /* Эффекты для карточек */
-.skill-card::before, .project-card::before {
+.project-card::before {
     content: "";
     position: absolute;
     top: 0;
@@ -220,8 +220,68 @@ section p {
     pointer-events: none;
 }
 
-.skill-card:hover::before, .project-card:hover::before {
+.project-card:hover::before {
     opacity: 1;
+}
+
+#skills {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.skill-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: #222;
+    padding: 10px 20px;
+    border-radius: 10px;
+    width: auto;
+    height: 60px;
+    min-width: 150px;
+    overflow: hidden;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: scale(1.05);
+}
+.skill-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(16, 185, 129, 0.2));
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+    border-radius: 10px;
+}
+
+.skill-card:hover::before {
+    opacity: 1;
+}
+
+.skill-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    z-index: 1; 
+}
+
+.skill-card span {
+    font-size: 16px;
+    color: #fff;
+    z-index: 1; 
 }
 
 
