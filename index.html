@@ -22,11 +22,13 @@
             bubbleContainer.innerHTML = '';
 
             const screenWidth = window.innerWidth;
-            const bubbleCount = Math.floor(screenWidth / 34); // Количество пузырьков на каждые 100 пикселей ширины
+            const bubbleCount = Math.floor(screenWidth / 36); 
 
             for (let i = 0; i < bubbleCount; i++) {
                 const bubble = document.createElement('span');
-                const randomValue = Math.floor(Math.random() * 25) + 1;
+                // Speed of bubbles
+                const randomValue = Math.floor(Math.random() * 16) + 6;
+                console.log(randomValue)
                 bubble.style.setProperty('--i', randomValue);
                 bubbleContainer.appendChild(bubble);
             }
@@ -93,51 +95,51 @@
         </div>
     </section>
 
-<!-- Skills Section -->
-<section id="skills">
-    <h2>Skills</h2>
-    <div class="skills-grid">
-        <div class="skill-card">
-            <img src="https://cdn.simpleicons.org/python/FFFFFF" alt="Python Logo" class="skill-icon">
-            Python
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <img src="https://cdn.simpleicons.org/python/FFFFFF" alt="Python Logo" class="skill-icon">
+                Python
+            </div>
+            <div class="skill-card">
+                <img src="https://cdn.simpleicons.org/cplusplus/FFFFFF" alt="C++" class="skill-icon">
+                C++
+            </div>
+            <div class="skill-card">
+                <img src="https://cdn.simpleicons.org/html5/FFFFFF" alt="HTML5" class="skill-icon">
+                HTML & CSS
+            </div>
+            <div class="skill-card">
+                <img src="https://cdn.simpleicons.org/javascript/FFFFFF" alt="JavaScript" class="skill-icon">
+                JavaScript
+            </div>
+            <div class="skill-card">
+                <img src="media/assembly.svg" alt="Assembly Logo" class="skill-icon">
+                Assembly
+            </div>
+            <div class="skill-card">
+                <img src="media/java.svg" alt="Java Logo" class="skill-icon">
+                Java
+            </div>
+            <div class="skill-card">
+                <img src="https://cdn.simpleicons.org/flask/FFFFFF" alt="Flask" class="skill-icon">
+                Flask
+            </div>
+            <div class="skill-card">
+                <img src="https://cdn.simpleicons.org/postgresql/FFFFFF" alt="PostgreSQL" class="skill-icon">
+                PostgreSQL
+            </div>
+            <div class="skill-card">
+                <img src="media/thealgorithms.svg" alt="Algorithms Logo" class="skill-icon">
+                Algorithms
+            </div>
         </div>
-        <div class="skill-card">
-            <img src="https://cdn.simpleicons.org/cplusplus/FFFFFF" alt="C++" class="skill-icon">
-            C++
-        </div>
-        <div class="skill-card">
-            <img src="https://cdn.simpleicons.org/html5/FFFFFF" alt="HTML5" class="skill-icon">
-            HTML & CSS
-        </div>
-        <div class="skill-card">
-            <img src="https://cdn.simpleicons.org/javascript/FFFFFF" alt="JavaScript" class="skill-icon">
-            JavaScript
-        </div>
-        <div class="skill-card">
-            <img src="media/assembly.svg" alt="Assembly Logo" class="skill-icon">
-            Assembly
-        </div>
-        <div class="skill-card">
-            <img src="media/java.svg" alt="Java Logo" class="skill-icon">
-            Java
-        </div>
-        <div class="skill-card">
-            <img src="https://cdn.simpleicons.org/flask/FFFFFF" alt="Flask" class="skill-icon">
-            Flask
-        </div>
-        <div class="skill-card">
-            <img src="https://cdn.simpleicons.org/postgresql/FFFFFF" alt="PostgreSQL" class="skill-icon">
-            PostgreSQL
-        </div>
-        <div class="skill-card">
-            <img src="media/thealgorithms.svg" alt="Algorithms Logo" class="skill-icon">
-            Algorithms
-        </div>
-    </div>
-</section>
+    </section>
 
 
-    <!-- Projects Section -->
+        <!-- Projects Section -->
     <section id="projects">
         <h2>Projects</h2>
         <div class="project-card">
@@ -167,14 +169,10 @@
     <!-- Contact Section -->
     <section id="contact">
         <h2>Contact</h2>
-        <form action="send_email.php" method="POST">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Your Message" required></textarea>
-            <button type="submit">Send</button>
-        </form>
+        <p>If you would like to get in touch, feel free to reach out via email or connect with me on social media.</p>
+        <p>Email: <a href="mailto:nurdaulet@sovetkhan.kz"> nurdaulet@sovetkhan.kz</a></p>
     </section>
-    
+        
     <footer>
         <p>&copy; 2025 Nurdaulet Sovetkhan</p>
     </footer>
