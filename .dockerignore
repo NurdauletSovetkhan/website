@@ -1,0 +1,28 @@
+# Git files
+.git
+.gitignore
+.github
+
+# Docker files
+Dockerfile
+.dockerignore
+docker-compose.yml
+
+# Documentation
+README.md
+*.md
+
+# Editor and IDE files
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
