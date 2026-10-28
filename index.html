@@ -308,7 +308,199 @@ a{color:var(--ink)}a:hover{color:var(--red)}
     <span class="hide-m" style="color:var(--red);transform:rotate(-2deg)">hold the mouse &amp; doodle anywhere ✎</span>
     <a href="#top">back to the cover ↑</a>
   </footer>
+</section>
+</main>
 
-</div>
+<script>
+(() => {
+  const LINKS = [
+    { key: 'tg', name: 'Telegram',  url: 'https://t.me/nurrrd4ulet',            handle: '@nurrrd4ulet' },
+    { key: 'gh', name: 'GitHub',    url: 'https://github.com/NurdauletSovetkhan',       handle: 'github.com/NurdauletSovekthan' },
+    { key: 'ig', name: 'Instagram', url: 'https://instagram.com/nurrrdaulet.sovetkhan',    handle: '@nurrrdaulet.sovetkhan' },
+  ];
+  const PROJECTS = [
+    { title: 'KZ ITF Web Platform', tag: 'web · infra', desc: 'Official website infrastructure for the Kazakhstan ITF Taekwon-Do Association (KZITF / TKDKZ).', link: 'Live site', href: 'https://itf-tkd.kz' },
+    { title: 'Nur-Saylet Landing', tag: 'web', desc: 'Commercial landing page presenting corporate identity, projects and services.', link: 'Live site', href: 'https://nur-saylet.kz' },
+    { title: 'Terminal Tamagochi', tag: 'python · cli', desc: 'A virtual pet that lives inside your terminal, with custom stats and animations.', link: 'GitHub', href: 'https://github.com/NurdauletSovetkhan/Tamagochi' },
+    { title: 'Telegram ChatGPT Bot', tag: 'python · openai', desc: 'Multi-purpose Telegram bot powered by Python and integrated OpenAI APIs.', link: '', href: '' },
+    { title: 'ML & Computations', tag: 'jupyter · ml', desc: 'Notebook collection of computational math algorithms and baseline ML models.', link: 'GitHub', href: '' },
+    { title: 'DAYN Minecraft Mod', tag: 'java · forge', desc: 'Minecraft 1.20 Forge mod with custom armor sets, weapons and new dimension mechanics.', link: '', href: '' },
+    { title: '2048 Terminal Game', tag: 'python · cli', desc: 'The classic 2048 puzzle, implemented in Python for the command line.', link: 'GitHub', href: 'https://github.com/NurdauletSovetkhan/2048game' }
+  ];
+
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const ext = (u) => /^https?:/.test(u) ? ' target="_blank" rel="noopener"' : '';
+
+  const ICON = {
+    tg: '<path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/>',
+    gh: '<path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/>',
+    ig: '<rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/>',
+    li: '<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>'
+  };
+  $('#hero-soc').innerHTML = LINKS.map((l) => `<a class="soc" href="${esc(l.url)}"${ext(l.url)} aria-label="${l.name}"><svg class="sk" viewBox="0 0 52 52" aria-hidden="true"><path d="M26 4 C 40 3, 49 13, 48 27 C 47 41, 37 49, 24 48 C 11 47, 3 37, 4 24 C 5 12, 14 5, 28 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICON[l.key]}</svg></a>`).join('');
+  $('#rows').innerHTML = LINKS.map((l) => `<a class="srow" href="${esc(l.url)}"${ext(l.url)}><span class="cav" style="font-size:clamp(34px,3.6vw,52px);line-height:1;color:var(--ink)">→ ${l.name}</span><span aria-hidden="true" style="flex:1;border-bottom:2px dotted rgba(43,43,48,.35);transform:translateY(-8px)"></span><span class="mono" style="font-size:14px;color:#5d5d66">${esc(l.handle)}</span></a>`).join('');
+  $('#rings').innerHTML = '<span style="display:block;width:30px;height:12px;border-radius:999px;border:3px solid #3a3a40;box-shadow:inset 0 2px 2px rgba(255,255,255,.3),0 2px 3px rgba(0,0,0,.35)"></span>'.repeat(14);
+
+  const FACTS = [['core languages', 'Python, TypeScript, Kotlin, SQL'], ['devops', 'Docker, Nginx, Linux (Arch / Debian), Bash / Zsh'], ['focus', 'Backend, electronic refereeing systems, self-hosted servers'], ['study', 'Computer Science · Astana IT University']];
+  $('#facts').innerHTML = FACTS.map(([k, v]) => `<li style="display:grid;grid-template-columns:30px minmax(0,1fr);gap:14px;align-items:start;font-size:20px;line-height:1.35"><svg class="draw sk" viewBox="0 0 26 26" width="26" height="26" aria-hidden="true" style="overflow:visible;margin-top:2px"><path pathLength="1" d="M3 4 L21 3 L22 21 L4 22 Z" fill="none" stroke="#2b2b30" stroke-width="2" stroke-linejoin="round"/><path pathLength="1" d="M6 12 L11 18 L25 -2" fill="none" stroke="#2e9e4f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><span><span class="mono" style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#5d5d66;display:block">${k}</span>${esc(v)}</span></li>`).join('');
+
+  const GROUPS = [
+    { name: 'DevOps & Sysadmin', belt: '#2e9e4f', fill: '#d6f2c8', items: ['Linux (Arch / Debian)', 'Docker & Compose', 'Nginx', 'Bash / Zsh', 'Git & SSH', 'Systemd', 'Networking & CCTV'] },
+    { name: 'Backend & Databases', belt: '#1f4fd1', fill: '#cfdcff', items: ['Python', 'PostgreSQL', 'SQL', 'REST APIs', 'C / C++', 'Flask', 'Node.js'] },
+    { name: 'Mobile & Web', belt: '#f4c430', fill: '#fff0a6', items: ['Android (Kotlin)', 'TypeScript', 'React & Vite', 'Vue.js', 'HTML5 & CSS3'] },
+    { name: 'CS Fundamentals', belt: '#c8283a', fill: '#ffd3d3', items: ['OOP', 'Haskell (FP)', 'Java', 'Assembly', 'Algorithms & Data Structures'] }
+  ];
+  const RADS = ['999px', '10px', '6px 16px 8px 14px', '14px'];
+  let n = 0;
+  $('#groups').innerHTML = GROUPS.map((g) => `<div data-reveal style="display:flex;flex-direction:column;gap:18px"><h3 class="cav" style="display:flex;align-items:center;gap:14px;font-size:34px"><span aria-hidden="true" style="width:44px;height:14px;border-radius:3px;background:${g.belt};box-shadow:inset 0 0 0 1.5px rgba(0,0,0,.2)"></span>${esc(g.name)}</h3><ul style="display:flex;flex-wrap:wrap;gap:14px 12px">${g.items.map((it) => { n++; const rot = ((((n * 37) % 13) - 6) * 0.9).toFixed(1); return `<li class="stk" data-rot="${rot}" style="transform:rotate(${rot}deg);border-radius:${RADS[n % 4]};background:${g.fill}">${esc(it)}</li>`; }).join('')}</ul></div>`).join('');
+
+  const TAPES = ['rgba(255,228,92,.6)', 'rgba(140,200,255,.55)', 'rgba(255,150,170,.5)', 'rgba(150,230,160,.55)'];
+  $('#pgrid').innerHTML = PROJECTS.map((p, i) => {
+    const rot = ((((i * 53) % 9) - 4) * 0.45).toFixed(2);
+    const link = p.href ? `<a href="${esc(p.href)}"${ext(p.href)} class="cav" style="align-self:flex-start;font-size:26px;line-height:28px;color:var(--ink);text-decoration:underline;text-decoration-color:#c8283a;text-decoration-thickness:2px;text-underline-offset:4px;padding:8px 0">${esc(p.link)} ↗</a>` : '<span class="cav" style="font-weight:500;font-size:24px;line-height:28px;color:#5d5d66;padding:8px 0">(private — ask me)</span>';
+    return `<div data-reveal style="transition-delay:${((i % 3) * 0.1).toFixed(2)}s"><article class="icard" style="height:100%;transform:rotate(${rot}deg);background-image:repeating-linear-gradient(180deg,transparent 0 27px,rgba(80,120,200,.26) 27px 28px);background-position:0 6px;padding:62px 24px 22px;display:flex;flex-direction:column;gap:6px"><span class="redline" aria-hidden="true" style="top:46px"></span><span class="tape" aria-hidden="true" style="top:-14px;left:${22 + ((i * 29) % 46)}%;width:96px;height:28px;background:${TAPES[i % 4]};transform:rotate(${((i * 7) % 9) - 4}deg)"></span><span class="cav" style="position:absolute;top:10px;left:24px;font-size:28px;color:var(--red)">#${String(i + 2).padStart(2, '0')}</span><span class="mono" style="position:absolute;top:14px;right:18px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#5d5d66">${esc(p.tag)}</span><h3 class="cav" style="font-size:34px;line-height:28px;padding-top:2px;color:var(--ink)">${esc(p.title)}</h3><p style="font-size:18px;line-height:28px;flex:1">${esc(p.desc)}</p>${link}</article></div>`;
+  }).join('');
+
+  /* ---------- clock + kiosk ---------- */
+  const pad = (x) => String(x).padStart(2, '0');
+  const fmt = (() => { try { return new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Almaty', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false }); } catch (e) { return null; } })();
+  const K = { red: 0, blue: 0, run: false, t: 120, round: 1 };
+  const kRender = () => {
+    $('#kRed').textContent = pad(K.red); $('#kBlue').textContent = pad(K.blue); $('#kRound').textContent = K.round;
+    const tm = $('#kTime'); tm.textContent = pad(Math.floor(K.t / 60)) + ':' + pad(K.t % 60);
+    tm.style.color = K.t === 0 ? '#ff6b6b' : (K.run ? '#c6ff3d' : '#f2f2f5');
+    $('#kToggle').textContent = K.run ? 'Pause' : (K.t === 0 ? 'Next round' : 'Start');
+  };
+  const flash = (box, on, off) => { box.style.background = on; clearTimeout(box._t); box._t = setTimeout(() => { box.style.background = off; }, 260); };
+  $$('[data-k]').forEach((b) => b.addEventListener('click', () => {
+    const side = b.dataset.k[0], v = +b.dataset.k[1];
+    if (side === 'r') { K.red = Math.min(99, K.red + v); flash($('#kRedBox'), '#ff4d5e', '#c8283a'); }
+    else { K.blue = Math.min(99, K.blue + v); flash($('#kBlueBox'), '#4d7dff', '#1f4fd1'); }
+    kRender();
+  }));
+  $('#kToggle').addEventListener('click', () => { if (K.t === 0) { K.t = 120; K.run = true; K.round = Math.min(3, K.round + 1); } else K.run = !K.run; kRender(); });
+  $('#kReset').addEventListener('click', () => { Object.assign(K, { red: 0, blue: 0, run: false, t: 120, round: 1 }); kRender(); });
+  const tickClock = () => {
+    const s = fmt ? fmt.format(new Date()) : new Date().toTimeString().slice(0, 8);
+    $$('.clock').forEach((el) => { el.textContent = s; });
+    if (K.run) { K.t = Math.max(0, K.t - 1); if (K.t === 0) K.run = false; kRender(); }
+  };
+  tickClock(); setInterval(tickClock, 1000); kRender();
+
+  /* ---------- reveal ---------- */
+  if ('IntersectionObserver' in window) {
+    document.body.classList.add('rv-on');
+    const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: 0.15, rootMargin: '0px 0px -6% 0px' });
+    $$('[data-reveal]').forEach((el) => io.observe(el));
+  }
+
+  /* ---------- writing ---------- */
+  const lines = $$('[data-wl]'), pen = $('#pen'), hero = $('#top');
+  let written = false, writeT0 = 0;
+  const finishWrite = () => { written = true; lines.forEach((l) => { l.style.clipPath = ''; }); pen.style.opacity = '0'; hero.classList.add('in'); };
+  if (reduce) finishWrite(); else lines.forEach((l) => { l.style.clipPath = 'inset(-20% 100% -20% 0)'; });
+
+  /* ---------- stickers drag + ink doodles ---------- */
+  let drag = null, zTop = 10, cur = null, strokes = [], dirty = false;
+  $$('.stk').forEach((el) => el.addEventListener('pointerdown', (e) => {
+    if (e.button !== 0) return;
+    e.preventDefault();
+    drag = { el, x: e.clientX, y: e.clientY, lx: e.clientX, dx: +el.dataset.dx || 0, dy: +el.dataset.dy || 0, rot: +el.dataset.rot || 0 };
+    drag.nx = drag.dx; drag.ny = drag.dy;
+    el.style.zIndex = ++zTop; el.style.cursor = 'grabbing';
+  }));
+  addEventListener('pointerdown', (e) => {
+    if (drag || e.pointerType === 'touch' || e.button !== 0) return;
+    if (e.target.closest && e.target.closest('a,button,input,textarea,.stk')) return;
+    e.preventDefault();
+    cur = { pts: [[e.clientX, e.clientY + scrollY]], t: performance.now(), done: false };
+    strokes.push(cur); dirty = true;
+  });
+  addEventListener('pointermove', (e) => {
+    if (drag) {
+      const nx = drag.dx + (e.clientX - drag.x), ny = drag.dy + (e.clientY - drag.y);
+      const tilt = Math.max(-14, Math.min(14, (e.clientX - drag.lx) * 0.8));
+      drag.lx = e.clientX; drag.nx = nx; drag.ny = ny;
+      drag.el.style.transform = `translate(${nx}px,${ny}px) rotate(${drag.rot + tilt}deg) scale(1.1)`;
+      return;
+    }
+    if (cur) { cur.pts.push([e.clientX, e.clientY + scrollY]); cur.t = performance.now(); dirty = true; }
+  }, { passive: true });
+  const up = () => {
+    if (drag) { const d = drag; d.el.dataset.dx = d.nx; d.el.dataset.dy = d.ny; d.el.style.transform = `translate(${d.nx}px,${d.ny}px) rotate(${d.rot}deg)`; d.el.style.cursor = ''; drag = null; }
+    if (cur) { cur.done = true; cur.t = performance.now(); cur = null; }
+  };
+  addEventListener('pointerup', up); addEventListener('pointercancel', up);
+
+  const ink = $('#ink'), ctx = ink.getContext('2d');
+  const inkColor = getComputedStyle(document.documentElement).getPropertyValue('--ink').trim() || '#1d2f7a';
+  const drawInk = (now, sy) => {
+    const dpr = Math.min(devicePixelRatio || 1, 2), w = ink.clientWidth, h = ink.clientHeight;
+    if (ink.width !== Math.round(w * dpr) || ink.height !== Math.round(h * dpr)) { ink.width = Math.round(w * dpr); ink.height = Math.round(h * dpr); dirty = true; }
+    if (!strokes.length) { if (dirty) { ctx.clearRect(0, 0, ink.width, ink.height); dirty = false; } return; }
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, w, h);
+    ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.strokeStyle = inkColor; ctx.lineWidth = 2.4;
+    strokes = strokes.filter((s) => !s.done || now - s.t < 7000);
+    strokes.forEach((s) => {
+      const age = s.done ? now - s.t : 0, a = age > 5000 ? Math.max(0, 1 - (age - 5000) / 2000) : 1;
+      if (a <= 0) return;
+      ctx.globalAlpha = a * 0.9; ctx.beginPath();
+      const P = s.pts; ctx.moveTo(P[0][0], P[0][1] - sy);
+      for (let i = 1; i < P.length - 1; i++) ctx.quadraticCurveTo(P[i][0], P[i][1] - sy, (P[i][0] + P[i + 1][0]) / 2, (P[i][1] + P[i + 1][1]) / 2 - sy);
+      if (P.length > 1) ctx.lineTo(P[P.length - 1][0], P[P.length - 1][1] - sy); else ctx.lineTo(P[0][0] + 0.1, P[0][1] - sy);
+      ctx.stroke();
+    });
+    ctx.globalAlpha = 1;
+  };
+
+  /* ---------- main loop ---------- */
+  const scene = $('#scene'), cover = $('#cover'), belt = $('#belt'), beltFill = $('#beltfill'), beltName = $('#beltname');
+  const secs = ['about', 'stack', 'experience', 'projects', 'contact'].map((id) => document.getElementById(id));
+  const BELTS = ['#ffffff', '#f4c430', '#2e9e4f', '#1f4fd1', '#c8283a', '#151515'];
+  const BNAMES = ['white belt', 'yellow belt', 'green belt', 'blue belt', 'red belt', 'black belt — you read it all'];
+  let boilT = 0, boilI = 0, beltIdx = -1;
+  const tick = (now) => {
+    requestAnimationFrame(tick);
+    if (document.hidden) return;
+    const vh = innerHeight, sy = scrollY;
+    if (!reduce && now - boilT > 140) { boilT = now; document.body.classList.remove('b' + boilI); boilI = (boilI + 1) % 3; document.body.classList.add('b' + boilI); }
+
+    const b = scene.getBoundingClientRect();
+    const p = Math.max(0, Math.min(1, -b.top / Math.max(1, b.height - Math.min(vh, 980))));
+    const q0 = Math.max(0, Math.min(1, (p - 0.2) / 0.75)), q = q0 < 0.5 ? 2 * q0 * q0 : 1 - Math.pow(-2 * q0 + 2, 2) / 2;
+    cover.style.transform = `rotateY(${(-q * 178).toFixed(2)}deg)`;
+    cover.style.opacity = q > 0.9 ? String(Math.max(0, 1 - (q - 0.9) / 0.1)) : '1';
+    cover.style.pointerEvents = q > 0.4 ? 'none' : '';
+    cover.style.visibility = q >= 1 ? 'hidden' : 'visible';
+    const b2 = Math.max(0, Math.min(1, p / 0.28));
+    belt.style.transform = `translateY(${(b2 * b2 * 420).toFixed(1)}px) rotate(${(b2 * -7).toFixed(2)}deg)`;
+    belt.style.opacity = String(1 - b2);
+
+    if (!written && p > 0.55) {
+      if (!writeT0) writeT0 = now;
+      const el = now - writeT0, per = 950, gap = 250, hb = $('#h1').getBoundingClientRect();
+      let px = 0, py = 0, active = false;
+      lines.forEach((l, i) => {
+        const lp = Math.max(0, Math.min(1, (el - i * (per + gap)) / per));
+        l.style.clipPath = `inset(-20% ${((1 - lp) * 100).toFixed(2)}% -20% 0)`;
+        if (lp > 0 && lp < 1) { const lb = l.getBoundingClientRect(); px = lb.left - hb.left + lb.width * lp; py = lb.top - hb.top + lb.height * (0.55 + Math.sin(el / 45) * 0.12); active = true; }
+      });
+      pen.style.opacity = active ? '1' : '0';
+      if (active) { pen.style.left = (px - 20).toFixed(1) + 'px'; pen.style.top = (py - 114).toFixed(1) + 'px'; }
+      if (el > lines.length * (per + gap)) finishWrite();
+    }
+
+    beltFill.style.transform = `scaleY(${Math.min(1, sy / Math.max(1, document.documentElement.scrollHeight - vh)).toFixed(4)})`;
+    let idx = 0; secs.forEach((s, i) => { if (s.getBoundingClientRect().top < vh * 0.5) idx = i + 1; });
+    if (idx !== beltIdx) { beltIdx = idx; beltFill.style.backgroundColor = BELTS[idx]; beltName.textContent = BNAMES[idx]; }
+
+    drawInk(now, sy);
+  };
+  requestAnimationFrame(tick);
+})();
+</script>
 </body>
 </html>
